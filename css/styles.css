@@ -1,0 +1,134 @@
+/* ========== Reset ========== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #222222;
+    background-color: #ffffff;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ========== Header (celular) ========== */
+/* Colores del logo: verde #067c35 y rojo #e62225 */
+header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #ffffff;
+    border-bottom: 4px solid #067c35;
+}
+
+#logo img {
+    width: 56px;
+}
+
+#hamburguesa {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#hamburguesa img {
+    width: 32px;
+}
+
+/* El menú empieza oculto */
+#item-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    list-style: none;
+    background-color: #067c35;
+}
+
+/* Cuando JS le pone la clase "abierto", el menú se muestra */
+#item-nav.abierto {
+    display: block;
+}
+
+#item-nav a {
+    display: block;
+    padding: 14px 16px;
+    color: #ffffff;
+    text-decoration: none;
+    border-top: 1px solid #ffffff;
+}
+
+#item-nav a:hover {
+    background-color: #e62225;
+}
+
+/* ========== Secciones ========== */
+section {
+    padding: 48px 16px;
+}
+
+h1,
+h2 {
+    color: #067c35;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+/* ========== Footer ========== */
+footer {
+    padding: 32px 16px;
+    background-color: #067c35;
+    color: #ffffff;
+}
+
+/* ========== Escritorio (pantallas de 768px o más) ========== */
+@media (min-width: 768px) {
+    header {
+        padding: 8px 40px;
+    }
+
+    /* En escritorio no se necesita el botón */
+    #hamburguesa {
+        display: none;
+    }
+
+    /* El menú siempre se ve, en fila.
+       Se pone también #item-nav.abierto porque si no, esa regla le gana a esta */
+    #item-nav,
+    #item-nav.abierto {
+        display: flex;
+        position: static;
+        width: auto;
+        background-color: transparent;
+    }
+
+    #item-nav a {
+        color: #067c35;
+        border-top: none;
+        padding: 8px 12px;
+    }
+
+    #item-nav a:hover {
+        color: #ffffff;
+    }
+
+    section {
+        padding: 64px 40px;
+    }
+}

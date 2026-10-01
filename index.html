@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingeniería de Sistemas | Universidad de la Amazonia</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
@@ -13,12 +14,13 @@
     <header>
         <div id="logo"><a href="#"><img src="./img/logo-uniamazonia.png" alt="logo udla"></a></div>
         <nav>
-            <button id="hamburguesa"><img src="./img/menu-hamburguesa.png" alt="abrir menú">
+            <button id="hamburguesa" aria-expanded="false" aria-controls="item-nav">
+                <img src="./img/menu-hamburguesa.png" alt="abrir menú">
             </button>
             <ul id="item-nav">
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
+                <li><a href="#detalles">Detalles del programa</a></li>
+                <li><a href="#pensum">Plan de estudios</a></li>
+                <li><a href="#info">Más información</a></li>
             </ul>
         </nav>
     </header>
