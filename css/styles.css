@@ -115,11 +115,85 @@ section p {
     margin-right: 12px;
 }
 
+h3 {
+    color: #067c35;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+/* ========== Pénsum: carrusel de tarjetas ========== */
+/* Las tarjetas van en fila y se deslizan de lado */
+.carrusel-pensum {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+}
+
+.semestre {
+    flex-shrink: 0;
+    width: 260px;
+    margin-right: 16px;
+    padding: 16px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-top: 6px solid #067c35;
+    scroll-snap-align: start;
+}
+
+.semestre h3 {
+    margin-top: 0;
+}
+
+.semestre ul {
+    padding-left: 20px;
+}
+
+.semestre .total {
+    margin-top: 12px;
+    margin-bottom: 0;
+    font-weight: bold;
+    color: #e62225;
+}
+
+/* Botón para descargar el PDF */
+.boton {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #067c35;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.boton:hover {
+    background-color: #e62225;
+}
+
 /* ========== Footer ========== */
 footer {
     padding: 32px 16px;
     background-color: #067c35;
     color: #ffffff;
+}
+
+/* El h2 es verde por defecto y no se vería sobre el fondo verde */
+footer h2 {
+    color: #ffffff;
+}
+
+footer p {
+    margin-bottom: 8px;
+}
+
+footer a {
+    color: #ffffff;
+}
+
+footer .creditos {
+    margin-top: 24px;
+    font-size: 14px;
 }
 
 /* ========== Escritorio (pantallas de 768px o más) ========== */
@@ -155,5 +229,9 @@ footer {
 
     section {
         padding: 64px 40px;
+    }
+
+    footer {
+        padding: 48px 40px;
     }
 }
