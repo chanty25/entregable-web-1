@@ -1,49 +1,167 @@
-/* ========== Reset ========== */
+/* ==========================================================
+   Ingeniería de Sistemas - Universidad de la Amazonia
+   Colores del logo: verde #067c35, verde oscuro #034d20, rojo #e62225
+   Verde clarito para fondos: #eef5f0
+   ========================================================== */
+
+/* ---------- Reset y base ---------- */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+    /* Espacio para el menú fijo al saltar a una sección */
+    scroll-padding-top: 60px;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #222222;
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #333333;
     background-color: #ffffff;
 }
 
+/* height: auto mantiene la proporción de las fotos que tienen width y height en el HTML */
 img {
     max-width: 100%;
+    height: auto;
     display: block;
 }
 
-/* ========== Header (celular) ========== */
-/* Colores del logo: verde #067c35 y rojo #e62225 */
-header {
+a {
+    color: #067c35;
+}
+
+a:hover {
+    color: #e62225;
+}
+
+p {
+    margin-bottom: 14px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: "Roboto Condensed", Arial, sans-serif;
+    line-height: 1.2;
+    color: #034d20;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.centro {
+    text-align: center;
+}
+
+/* ---------- Franja superior ---------- */
+.barra-superior {
+    padding: 6px 0;
+    background-color: #034d20;
+    color: #ffffff;
+    font-size: 13px;
+}
+
+.barra-superior a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.barra-superior a:hover {
+    text-decoration: underline;
+}
+
+/* En celular solo se ve el nombre de la universidad */
+.barra-contacto {
+    display: none;
+}
+
+.barra-contacto a {
+    margin-left: 18px;
+}
+
+.barra-contacto img {
+    display: inline-block;
+    width: 14px;
+    margin-right: 5px;
+    vertical-align: -2px;
+}
+
+/* ---------- Encabezado ---------- */
+.encabezado {
+    padding: 14px 0;
+    background-color: #ffffff;
+}
+
+.marca {
+    display: inline-block;
+}
+
+/* Logo oficial del programa: en celular ocupa el ancho disponible */
+.marca img {
+    width: 100%;
+    max-width: 340px;
+}
+
+/* ---------- Menú ---------- */
+.menu {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #067c35;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.menu-contenido {
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 16px;
-    background-color: #ffffff;
-    border-bottom: 4px solid #067c35;
+    height: 50px;
 }
 
-#logo img {
-    width: 56px;
+.menu-titulo {
+    color: #ffffff;
+    font-family: "Roboto Condensed", Arial, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
 #hamburguesa {
-    background-color: transparent;
+    padding: 4px;
     border: none;
+    background-color: transparent;
     cursor: pointer;
 }
 
 #hamburguesa img {
-    width: 32px;
+    width: 28px;
 }
 
-/* El menú empieza oculto */
+/* Con el menú abierto se cambia el ícono ☰ por una X */
+#hamburguesa .icono-cerrar {
+    display: none;
+}
+
+#hamburguesa[aria-expanded="true"] .icono-abrir {
+    display: none;
+}
+
+#hamburguesa[aria-expanded="true"] .icono-cerrar {
+    display: block;
+}
+
+/* En celular la lista empieza oculta */
 #item-nav {
     display: none;
     position: absolute;
@@ -51,187 +169,1126 @@ header {
     left: 0;
     width: 100%;
     list-style: none;
-    background-color: #067c35;
+    background-color: #056b2e;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Cuando JS le pone la clase "abierto", el menú se muestra */
+/* JS le pone la clase "abierto" al tocar el botón */
 #item-nav.abierto {
     display: block;
 }
 
 #item-nav a {
     display: block;
-    padding: 14px 16px;
+    padding: 12px 16px;
+    border-top: 1px solid #0a8a3e;
     color: #ffffff;
+    font-family: "Roboto Condensed", Arial, sans-serif;
+    font-size: 16px;
     text-decoration: none;
-    border-top: 1px solid #ffffff;
+    text-transform: uppercase;
 }
 
 #item-nav a:hover {
-    background-color: #e62225;
+    background-color: #034d20;
 }
 
-/* ========== Secciones ========== */
-section {
-    padding: 48px 16px;
+/* Ícono de la casita en "Inicio" */
+#item-nav img {
+    display: inline-block;
+    width: 18px;
+    margin-right: 6px;
+    vertical-align: -3px;
 }
 
-h1,
-h2 {
-    color: #067c35;
+/* ---------- Carrusel de fotos ---------- */
+#inicio {
+    margin-top: 20px;
 }
 
-h1 {
-    font-size: 32px;
+.slider {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 6px;
+    background-color: #034d20;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
-h2 {
-    font-size: 24px;
-    margin-bottom: 16px;
+/* Las fotos están una encima de otra; solo se ve la que tiene "activo" */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    /* visibility: hidden hace que las fotos ocultas no reciban clics
+       (si no, taparían el enlace del banner de inscripciones) */
+    visibility: hidden;
+    transition: opacity 0.8s, visibility 0.8s;
 }
 
-section p {
-    margin-bottom: 16px;
+.slide.activo {
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
 }
 
-/* Lista de datos del programa: cada dato es una tarjeta */
-.datos {
-    list-style: none;
-    margin-top: 24px;
+.slide img {
+    width: 100%;
+    height: 100%;
+    /* Recorta la foto para llenar el espacio sin deformarla */
+    object-fit: cover;
 }
 
-.datos li {
-    padding: 12px 16px;
-    margin-bottom: 8px;
-    background-color: #f4f4f4;
-    border-left: 4px solid #067c35;
+/* En esta foto lo importante está más abajo (el pendón y la gente) */
+.slide .foto-centro-abajo {
+    object-position: center 65%;
+}
+
+/* Banners con texto propio. En celular se recortan mostrando la parte
+   del texto; desde tablet se ven casi completos (ver más abajo) */
+.slide-banner {
+    background-color: #ffffff;
+}
+
+.slide-banner a {
+    display: block;
+    height: 100%;
+}
+
+.banner-inscripciones img {
+    object-position: 74% center;
+}
+
+.banner-acreditacion img {
+    object-position: 81% center;
+}
+
+/* En la foto de la maratón se recorta más abajo que arriba,
+   para que no se corten las cabezas del grupo */
+.slide .foto-arriba {
+    object-position: center 20%;
+}
+
+/* Texto de cada foto, sobre una franja verde abajo a la izquierda */
+.slide-texto {
+    position: absolute;
+    /* En celular va bien abajo y más angosto, para no tapar a las personas
+       ni chocar con los puntos de la derecha */
+    bottom: 12px;
+    left: 0;
+    max-width: 75%;
+    padding: 10px 18px;
+    border-left: 5px solid #e62225;
+    background-color: rgba(3, 77, 32, 0.88);
+    color: #ffffff;
+}
+
+.slide-titulo {
+    margin: 0;
+    color: #ffffff;
+    font-family: "Roboto Condensed", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+/* Texto a la derecha (para fotos de grupo con gente a la izquierda) */
+.slide-texto.texto-derecha {
+    left: auto;
+    right: 0;
+    border-left: none;
+    border-right: 5px solid #e62225;
+    text-align: right;
+}
+
+/* En celular solo se ve el título de la foto, para que no tape las flechas */
+.slide-subtitulo {
+    display: none;
+    margin: 4px 0 0;
+    font-size: 15px;
+}
+
+.slider-flecha {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.slider-flecha:hover {
+    background-color: #067c35;
+}
+
+.slider-flecha img {
+    width: 26px;
+    margin: 0 auto;
+}
+
+.anterior {
+    left: 0;
+}
+
+.siguiente {
+    right: 0;
+}
+
+/* En celular los puntos van arriba para no chocar con el texto de la foto */
+.slider-puntos {
     display: flex;
     align-items: center;
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    z-index: 2;
 }
 
-/* Ícono a la izquierda del dato */
-.datos .icono {
+/* Botón de pausa: círculo oscuro con el ícono blanco */
+.slider-pausa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    margin-right: 4px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.45);
+    cursor: pointer;
+}
+
+.slider-pausa:hover {
+    background-color: #067c35;
+}
+
+.slider-pausa img {
+    width: 16px;
+}
+
+/* Se muestra el ícono de pausa; cuando JS le pone la clase "pausado",
+   se cambia por el de reproducir */
+.slider-pausa .icono-play {
+    display: none;
+}
+
+.slider-pausa.pausado .icono-pausa {
+    display: none;
+}
+
+.slider-pausa.pausado .icono-play {
+    display: block;
+}
+
+/* Fondo oscuro y sombra para que los puntos se vean también sobre los banners blancos */
+.punto {
+    width: 11px;
+    height: 11px;
+    margin-left: 6px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.punto.activo {
+    background-color: #ffffff;
+}
+
+/* ---------- Título de la página ---------- */
+.titulo-pagina {
+    margin-top: 24px;
+    padding: 18px 0 16px;
+    border-bottom: 3px solid #067c35;
+    background-color: #f3f7f4;
+}
+
+.ruta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 6px;
+    color: #777777;
+    font-size: 13px;
+}
+
+.ruta img {
+    width: 16px;
+    margin-right: 6px;
+}
+
+.ruta a {
+    margin-right: 4px;
+    color: #777777;
+}
+
+.ruta span {
+    margin-left: 4px;
+    color: #333333;
+}
+
+.titulo-pagina h1 {
+    font-size: 32px;
+    text-transform: uppercase;
+}
+
+.subtitulo-pagina {
+    margin: 4px 0 0;
+    color: #555555;
+    font-size: 15px;
+}
+
+/* ---------- Títulos de sección (con ícono) ---------- */
+.titulo-seccion {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid #067c35;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.titulo-seccion img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+h3 {
+    display: flex;
+    align-items: center;
+    margin: 24px 0 12px;
+    font-size: 19px;
+}
+
+h3 img {
+    width: 24px;
+    margin-right: 8px;
+}
+
+/* ---------- Columnas: contenido + barra lateral ---------- */
+.columnas {
+    padding-top: 28px;
+    padding-bottom: 20px;
+}
+
+.contenido section {
+    margin-bottom: 40px;
+}
+
+/* Áreas de formación: cada una con su ícono */
+.areas {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.area {
+    display: flex;
+    align-items: flex-start;
+    padding: 14px;
+    border: 1px solid #e1e8e4;
+    border-left: 4px solid #067c35;
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.area img {
+    flex-shrink: 0;
     width: 32px;
     margin-right: 12px;
 }
 
-h3 {
-    color: #067c35;
-    margin-top: 24px;
-    margin-bottom: 8px;
+.area h4 {
+    margin-bottom: 4px;
+    font-size: 17px;
 }
 
-/* ========== Pénsum: carrusel de tarjetas ========== */
-/* Las tarjetas van en fila y se deslizan de lado */
-.carrusel-pensum {
+.area p {
+    margin: 0;
+    color: #555555;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.dos-columnas {
+    display: grid;
+    gap: 20px;
+}
+
+/* Recuadros de misión y visión */
+.recuadro {
+    padding: 4px 20px 8px;
+    border: 1px solid #e1e8e4;
+    border-top: 4px solid #067c35;
+    border-radius: 6px;
+    background-color: #f8faf9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.recuadro h3 {
+    margin-top: 16px;
+}
+
+/* Foto a la derecha del texto (en celular ocupa todo el ancho) */
+.foto-derecha {
+    margin-bottom: 14px;
+}
+
+.foto-derecha img {
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.foto-derecha figcaption {
+    margin-top: 8px;
+    color: #666666;
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* "Clearfix": hace que la sección envuelva la foto flotante */
+.con-foto::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* Lista con chulito verde */
+.lista-check {
+    list-style: none;
+}
+
+.lista-check li {
+    position: relative;
+    margin-bottom: 10px;
+    padding-left: 30px;
+}
+
+.lista-check li::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-image: url("../img/iconos/check.svg");
+    background-size: 20px;
+}
+
+/* ---------- Barra lateral ---------- */
+.caja {
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid #dde5e0;
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Título de cada caja: franja verde con ícono blanco */
+.caja-titulo {
     display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    background-color: #067c35;
+    color: #ffffff;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.caja-titulo img {
+    width: 20px;
+    margin-right: 8px;
+}
+
+.caja .ficha,
+.caja .lista-enlaces {
+    padding: 12px 14px;
+}
+
+/* Lista con un ícono pequeño al lado de cada dato */
+.ficha {
+    list-style: none;
+}
+
+.ficha li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.ficha img {
+    flex-shrink: 0;
+    width: 20px;
+    margin: 1px 10px 0 0;
+}
+
+.lista-enlaces {
+    list-style: none;
+}
+
+.lista-enlaces li {
+    display: flex;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 1px dotted #cccccc;
+    font-size: 15px;
+}
+
+.lista-enlaces li:last-child {
+    border-bottom: none;
+}
+
+.lista-enlaces img {
+    flex-shrink: 0;
+    width: 18px;
+    margin-right: 8px;
+}
+
+/* ---------- Bandas de color de fondo (pénsum y campus) ---------- */
+.banda {
+    padding: 44px 0;
+    border-top: 1px solid #dde8e1;
+    border-bottom: 1px solid #dde8e1;
+    background-color: #eef5f0;
+}
+
+.seccion {
+    padding: 44px 0;
+}
+
+/* ---------- Plan de estudios: carrusel ---------- */
+.pensum-barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.pensum-barra p {
+    margin: 0 16px 0 0;
+}
+
+.pensum-flechas {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.pensum-flechas button {
+    width: 40px;
+    height: 40px;
+    margin-left: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #067c35;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pensum-flechas button:hover {
+    background-color: #034d20;
+}
+
+.pensum-flechas img {
+    width: 24px;
+    margin: 0 auto;
+}
+
+/* La pista: tarjetas en fila que se deslizan de lado */
+.pensum-pista {
+    display: flex;
+    gap: 20px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding-bottom: 16px;
-    margin-bottom: 24px;
+    scroll-behavior: smooth;
+    padding: 6px 2px 16px;
+    /* Oculta la barra de desplazamiento (se usan las flechas y los puntos) */
+    scrollbar-width: none;
+}
+
+.pensum-pista::-webkit-scrollbar {
+    display: none;
 }
 
 .semestre {
     flex-shrink: 0;
-    width: 260px;
-    margin-right: 16px;
-    padding: 16px;
+    /* En celular cada tarjeta ocupa casi todo el ancho y se asoma la siguiente */
+    width: 85%;
+    overflow: hidden;
+    border-radius: 8px;
     background-color: #ffffff;
-    border: 1px solid #dddddd;
-    border-top: 6px solid #067c35;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     scroll-snap-align: start;
 }
 
-.semestre h3 {
-    margin-top: 0;
+.semestre-cabecera {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #067c35;
+}
+
+/* Círculo blanco con el número romano del semestre */
+.semestre-numero {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #067c35;
+    font-family: "Roboto Condensed", Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.semestre-cabecera h3 {
+    flex-grow: 1;
+    margin: 0 0 0 12px;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.semestre-creditos {
+    padding: 2px 10px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
 }
 
 .semestre ul {
-    padding-left: 20px;
+    list-style: none;
+    padding: 10px 18px 16px;
 }
 
-.semestre .total {
-    margin-top: 12px;
-    margin-bottom: 0;
-    font-weight: bold;
-    color: #e62225;
+.semestre li {
+    position: relative;
+    padding: 7px 0 7px 26px;
+    border-bottom: 1px dashed #e1e8e4;
+    font-size: 15px;
+    line-height: 1.4;
 }
 
-/* Botón para descargar el PDF */
+.semestre li:last-child {
+    border-bottom: none;
+}
+
+/* Chulito verde antes de cada asignatura */
+.semestre li::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 17px;
+    height: 17px;
+    background-image: url("../img/iconos/check.svg");
+    background-size: 17px;
+}
+
+/* Puntos debajo del carrusel */
+.pensum-puntos {
+    margin: 14px 0 24px;
+    text-align: center;
+}
+
+.punto-pensum {
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    border: none;
+    border-radius: 5px;
+    background-color: #b9cdbf;
+    cursor: pointer;
+    transition: width 0.3s, background-color 0.3s;
+}
+
+/* Los puntos de los semestres que se están viendo se alargan */
+.punto-pensum.activo {
+    width: 22px;
+    background-color: #067c35;
+}
+
+/* ---------- Botón ---------- */
 .boton {
-    display: inline-block;
-    padding: 12px 20px;
+    display: inline-flex;
+    align-items: center;
+    padding: 11px 20px;
+    border-radius: 4px;
     background-color: #067c35;
     color: #ffffff;
+    font-family: "Roboto Condensed", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
     text-decoration: none;
-    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s;
 }
 
 .boton:hover {
-    background-color: #e62225;
+    background-color: #034d20;
+    color: #ffffff;
 }
 
-/* ========== Footer ========== */
+.boton img {
+    width: 20px;
+    margin-right: 8px;
+}
+
+/* ---------- Semilleros ---------- */
+.semilleros {
+    display: grid;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.semillero {
+    padding: 18px;
+    border: 1px solid #e1e8e4;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.semillero:hover {
+    border-color: #067c35;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.semillero-cabecera {
+    display: flex;
+    align-items: center;
+}
+
+/* Círculo con borde verde para el ícono del semillero */
+.semillero-icono {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border: 2px solid #067c35;
+    border-radius: 50%;
+}
+
+.semillero-icono img {
+    width: 24px;
+}
+
+.semillero h3 {
+    margin: 0 0 0 12px;
+    font-size: 18px;
+}
+
+.semillero .lider {
+    display: flex;
+    align-items: flex-start;
+    margin: 12px 0 8px;
+    color: #666666;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.semillero .lider img {
+    flex-shrink: 0;
+    width: 16px;
+    margin: 1px 6px 0 0;
+}
+
+.semillero p {
+    margin-bottom: 0;
+    font-size: 15px;
+}
+
+.nota {
+    margin-top: 20px;
+    color: #666666;
+    font-size: 14px;
+}
+
+/* ---------- Actividades y eventos ---------- */
+.eventos {
+    display: grid;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.evento {
+    overflow: hidden;
+    border: 1px solid #e1e8e4;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.3s;
+}
+
+.evento:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.evento > img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.evento-texto {
+    padding: 16px 18px 20px;
+}
+
+/* Categoría del evento, con un ícono pequeño */
+.etiqueta-evento {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    color: #067c35;
+    font-family: "Roboto Condensed", Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.etiqueta-evento img {
+    width: 16px;
+    margin-right: 6px;
+}
+
+.evento h3 {
+    margin: 0 0 8px;
+    font-size: 19px;
+}
+
+.evento-texto p:last-child {
+    margin-bottom: 0;
+    font-size: 15px;
+}
+
+/* ---------- Galería ---------- */
+.galeria {
+    display: grid;
+    gap: 20px;
+}
+
+.galeria img {
+    width: 100%;
+    height: 240px;
+    border-radius: 6px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.galeria figcaption {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    color: #555555;
+    font-size: 14px;
+}
+
+.galeria figcaption img {
+    width: 16px;
+    height: auto;
+    margin-right: 6px;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* ---------- Contacto ---------- */
+.ficha-contacto li {
+    margin-bottom: 14px;
+    font-size: 16px;
+}
+
+.ficha-contacto img {
+    width: 22px;
+}
+
+.mapa iframe {
+    display: block;
+    width: 100%;
+    height: 300px;
+    border: 0;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- Footer ---------- */
 footer {
-    padding: 32px 16px;
-    background-color: #067c35;
-    color: #ffffff;
+    background-color: #034d20;
+    color: #d6e5db;
+    font-size: 14px;
 }
 
-/* El h2 es verde por defecto y no se vería sobre el fondo verde */
+.pie-columnas {
+    display: grid;
+    gap: 28px;
+    padding-top: 36px;
+    padding-bottom: 28px;
+}
+
 footer h2 {
+    margin-bottom: 12px;
     color: #ffffff;
+    font-size: 17px;
+    text-transform: uppercase;
 }
 
-footer p {
+.pie-marca {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+/* Logo sobre un cuadrito blanco para que se vea en el fondo oscuro */
+.pie-marca img {
+    width: 46px;
+    margin-right: 10px;
+    padding: 3px;
+    border-radius: 6px;
+    background-color: #ffffff;
+}
+
+.pie-marca h2 {
+    margin: 0;
+}
+
+.pie-dato {
+    display: flex;
+    align-items: flex-start;
     margin-bottom: 8px;
+}
+
+.pie-dato img {
+    flex-shrink: 0;
+    width: 18px;
+    margin: 2px 8px 0 0;
 }
 
 footer a {
     color: #ffffff;
 }
 
-footer .creditos {
-    margin-top: 24px;
-    font-size: 14px;
+footer a:hover {
+    color: #ffffff;
 }
 
-/* ========== Escritorio (pantallas de 768px o más) ========== */
+.pie-final {
+    padding: 14px 0;
+    background-color: #023817;
+    font-size: 12px;
+}
+
+.pie-final p {
+    margin-bottom: 4px;
+}
+
+/* ---------- Botón volver arriba ---------- */
+.volver-arriba {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 50;
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    background-color: #067c35;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    /* Empieza oculto; JS le pone la clase "visible" al bajar */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+
+.volver-arriba.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.volver-arriba img {
+    width: 22px;
+}
+
+/* ---------- Tablet (768px o más) ---------- */
 @media (min-width: 768px) {
-    header {
-        padding: 8px 40px;
+    .barra-superior .contenedor {
+        display: flex;
+        justify-content: space-between;
     }
 
-    /* En escritorio no se necesita el botón */
+    .barra-contacto {
+        display: inline;
+    }
+
+    .marca img {
+        max-width: 500px;
+    }
+
+    .slider {
+        height: 380px;
+    }
+
+    .slide-texto {
+        bottom: 40px;
+        max-width: 90%;
+        padding: 14px 24px;
+    }
+
+    .slider-puntos {
+        top: auto;
+        bottom: 12px;
+    }
+
+    .banner-inscripciones img,
+    .banner-acreditacion img {
+        object-position: center;
+    }
+
+
+    .slide-titulo {
+        font-size: 30px;
+    }
+
+    .slide-subtitulo {
+        display: block;
+    }
+
+    .areas,
+    .dos-columnas,
+    .semilleros,
+    .galeria,
+    .eventos {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* calc() calcula el ancho para que quepan 2 tarjetas con 20px de espacio */
+    .semestre {
+        width: calc((100% - 20px) / 2);
+    }
+
+    .foto-derecha {
+        float: right;
+        width: 42%;
+        margin: 0 0 14px 20px;
+    }
+
+    .pie-columnas {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* ---------- Escritorio (1024px o más) ---------- */
+@media (min-width: 1024px) {
+    /* En escritorio el menú siempre se ve, en fila */
+    .menu-titulo,
     #hamburguesa {
         display: none;
     }
 
-    /* El menú siempre se ve, en fila.
-       Se pone también #item-nav.abierto porque si no, esa regla le gana a esta */
     #item-nav,
     #item-nav.abierto {
         display: flex;
         position: static;
         width: auto;
         background-color: transparent;
+        box-shadow: none;
     }
 
     #item-nav a {
-        color: #067c35;
+        padding: 13px 16px;
         border-top: none;
-        padding: 8px 12px;
     }
 
-    #item-nav a:hover {
-        color: #ffffff;
+    .slider {
+        height: 460px;
     }
 
-    section {
-        padding: 64px 40px;
+    /* Contenido a la izquierda y barra lateral a la derecha */
+    .columnas {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 36px;
+        align-items: start;
     }
 
-    footer {
-        padding: 48px 40px;
+    /* "order" cambia el orden en pantalla: en celular la barra lateral va primero
+       y en escritorio pasa a la derecha */
+    .contenido {
+        order: 1;
+    }
+
+    .lateral {
+        order: 2;
+    }
+
+    /* 3 tarjetas del pénsum a la vez */
+    .semestre {
+        width: calc((100% - 40px) / 3);
+    }
+
+    .semilleros {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .eventos {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* ---------- Barra lateral fija ----------
+   La barra lateral mide unos 820px de alto. Solo se deja fija (sticky) cuando
+   la pantalla es lo bastante alta para mostrarla completa; si no, en un portátil
+   la parte de abajo quedaría escondida. Un media query puede revisar el ancho
+   y también el alto de la pantalla. */
+@media (min-width: 1024px) and (min-height: 920px) {
+    .lateral {
+        position: sticky;
+        top: 70px;
+    }
+}
+
+/* ---------- Pantallas grandes (1200px o más) ---------- */
+@media (min-width: 1200px) {
+    /* 4 tarjetas del pénsum a la vez */
+    .semestre {
+        width: calc((100% - 60px) / 4);
+    }
+}
+
+/* Si la persona pidió menos animaciones en su sistema, se quitan */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .slide {
+        transition: none;
+    }
+
+    .pensum-pista {
+        scroll-behavior: auto;
     }
 }

@@ -4,246 +4,734 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Programa de Ingeniería de Sistemas de la Universidad de la Amazonia, sede Florencia, Caquetá: plan de estudios, semilleros de investigación y contacto.">
     <title>Ingeniería de Sistemas | Universidad de la Amazonia</title>
+    <link rel="icon" href="img/logo-uniamazonia.png">
+
+    <!-- Tipografías: Roboto Condensed para títulos y menú, Open Sans para el texto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto+Condensed:wght@400;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/main.js" defer></script>
 </head>
 
 <body>
 
-    <header>
-        <div id="logo"><a href="#"><img src="./img/logo-uniamazonia.png" alt="logo udla"></a></div>
-        <nav>
-            <button id="hamburguesa" aria-expanded="false" aria-controls="item-nav">
-                <img src="./img/menu-hamburguesa.png" alt="abrir menú">
+    <!-- Franja superior -->
+    <div class="barra-superior">
+        <div class="contenedor">
+            <span>Universidad de la Amazonia · Florencia, Caquetá</span>
+            <span class="barra-contacto">
+                <a href="tel:+573204541936"><img src="./img/iconos/blanco/phone.svg" alt="">320 454 1936</a>
+                <a href="mailto:pisistemas@uniamazonia.edu.co"><img src="./img/iconos/blanco/mail.svg" alt="">pisistemas@uniamazonia.edu.co</a>
+            </span>
+        </div>
+    </div>
+
+    <!-- Encabezado con el logo -->
+    <header class="encabezado">
+        <div class="contenedor">
+            <!-- Logo oficial del programa (universidad + facultad + programa) -->
+            <a class="marca" href="#inicio">
+                <img src="./img/logo-programa-sistemas.png" width="1449" height="187"
+                    alt="Universidad de la Amazonia, Facultad de Ingenierías, Programa de Ingeniería de Sistemas">
+            </a>
+        </div>
+    </header>
+
+    <!-- Menú (se queda fijo arriba al bajar) -->
+    <nav class="menu">
+        <div class="contenedor menu-contenido">
+            <span class="menu-titulo">Menú</span>
+            <button id="hamburguesa" aria-expanded="false" aria-controls="item-nav" aria-label="Abrir menú">
+                <img class="icono-abrir" src="./img/iconos/blanco/menu-2.svg" alt="">
+                <img class="icono-cerrar" src="./img/iconos/blanco/x.svg" alt="">
             </button>
             <ul id="item-nav">
-                <li><a href="#detalles">Detalles del programa</a></li>
+                <li><a href="#inicio"><img src="./img/iconos/blanco/home.svg" alt="">Inicio</a></li>
+                <li><a href="#presentacion">Presentación</a></li>
+                <li><a href="#perfil">Perfil</a></li>
                 <li><a href="#pensum">Plan de estudios</a></li>
-                <li><a href="#info">Más información</a></li>
+                <li><a href="#semilleros">Semilleros</a></li>
+                <li><a href="#eventos">Eventos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </nav>
+
     <main>
-        <section id="carrusel">
-            <h1>Ingeniería de Sistemas</h1>
-        </section>
-        <section id="detalles">
-            <h2>Detalles del programa</h2>
-            <p>
-                El Programa Ingeniería de Sistemas de la Universidad de la Amazonia tiene como principal
-                propósito desarrollar procesos de formación integral de profesionales de la Ingeniería de
-                Sistemas, mediante un currículo que aborda las ciencias básicas, la ingeniería, el campo
-                tecnológico, investigativo, socio-humanista y de formación complementaria, para crear,
-                innovar y aplicar soluciones computacionales que contribuyan al progreso de la región
-                Amazónica y el país.
-            </p>
-            <p>
-                El programa fue creado mediante el Acuerdo 16 del 26 de agosto de 2004.
-            </p>
+        <!-- ==================== CARRUSEL DE FOTOS ==================== -->
+        <section id="inicio" class="contenedor">
+            <div class="slider" id="slider">
+                <!-- Las fotos están una encima de otra. JS cambia cuál tiene la clase "activo" -->
+                <div class="slide activo">
+                    <img class="foto-arriba" src="./img/fotos/portada-maraton-nacional-2026.jpg" width="1440" height="810"
+                        alt="Equipo de estudiantes del programa con su docente en la Maratón Nacional de Programación 2026">
+                    <!-- En esta foto el texto va a la derecha para no tapar las caras -->
+                    <div class="slide-texto texto-derecha">
+                        <p class="slide-titulo">Maratón Nacional de Programación 2026</p>
+                        <p class="slide-subtitulo">Estudiantes del programa en la competencia de programación ICPC</p>
+                    </div>
+                </div>
+                <!-- Los banners ya traen su propio texto: no llevan el texto verde encima -->
+                <div class="slide slide-banner banner-inscripciones">
+                    <a href="https://www.uniamazonia.edu.co/inicio/index.php/es/la-universidad/dependencias/departamentos/direccion-de-admision-registro-y-control-academico/228-aspirantes.html"
+                        target="_blank" rel="noopener">
+                        <img src="./img/fotos/banner-inscripciones-2027-1.jpg" width="1400" height="538"
+                            alt="Inscripciones abiertas 2027-1, desde el 24 de septiembre hasta el 2 de diciembre. Ver requisitos de inscripción">
+                    </a>
+                </div>
+                <div class="slide">
+                    <img src="./img/fotos/portada-laboratorio-robotica.jpg" width="1600" height="900"
+                        alt="Estudiantes en un laboratorio de robótica junto a robots humanoides">
+                    <div class="slide-texto">
+                        <p class="slide-titulo">Robótica e inteligencia artificial</p>
+                        <p class="slide-subtitulo">Visita académica a un laboratorio de robótica</p>
+                    </div>
+                </div>
+                <div class="slide slide-banner banner-acreditacion">
+                    <img src="./img/fotos/banner-acreditacion-alta-calidad.jpg" width="1400" height="532"
+                        alt="Universidad de la Amazonia: acreditación institucional en alta calidad, Resolución 016136 del 17 de junio de 2026">
+                </div>
+                <div class="slide">
+                    <img class="foto-centro-abajo" src="./img/fotos/portada-concurso-robotica.jpg" width="1024" height="768"
+                        alt="Concurso de Robótica Uniamazonia en el campus de la universidad">
+                    <div class="slide-texto">
+                        <p class="slide-titulo">Concurso de Robótica Uniamazonia</p>
+                        <p class="slide-subtitulo">Desafío Cloud, en el campus de la universidad</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="./img/fotos/portada-visita-etitc.jpg" width="1600" height="1066"
+                        alt="Estudiantes y docentes del programa en la Escuela Tecnológica Instituto Técnico Central">
+                    <div class="slide-texto">
+                        <p class="slide-titulo">Salidas académicas</p>
+                        <p class="slide-subtitulo">Visita a la Escuela Tecnológica Instituto Técnico Central, Bogotá</p>
+                    </div>
+                </div>
 
-            <ul class="datos">
-                <li>
-                    <img class="icono" src="./img/iconos/school.svg" alt="">
-                    <span><strong>Título:</strong> Ingeniero de Sistemas</span>
-                </li>
-                <li>
-                    <img class="icono" src="./img/iconos/calendar-time.svg" alt="">
-                    <span><strong>Duración:</strong> 10 semestres</span>
-                </li>
-                <li>
-                    <img class="icono" src="./img/iconos/sun.svg" alt="">
-                    <span><strong>Jornada:</strong> Diurna</span>
-                </li>
-                <li>
-                    <img class="icono" src="./img/iconos/books.svg" alt="">
-                    <span><strong>Créditos:</strong> 178</span>
-                </li>
-                <li>
-                    <img class="icono" src="./img/iconos/users.svg" alt="">
-                    <span><strong>Modalidad:</strong> Presencial</span>
-                </li>
-                <li>
-                    <img class="icono" src="./img/iconos/map-pin.svg" alt="">
-                    <span><strong>Sede:</strong> Florencia, Caquetá</span>
-                </li>
-                <li>
-                    <img class="icono" src="./img/iconos/id.svg" alt="">
-                    <span><strong>Código SNIES:</strong> 52384</span>
-                </li>
-                <li>
-                    <img class="icono" src="./img/iconos/certificate.svg" alt="">
-                    <span><strong>Registro calificado:</strong> Resolución 001562 del 16 de febrero de 2022</span>
-                </li>
-            </ul>
-        </section>
-        <section id="pensum">
-            <h2>Plan de estudios</h2>
-            <p>Desliza para ver las materias de cada semestre.</p>
+                <button class="slider-flecha anterior" id="slider-anterior" aria-label="Foto anterior">
+                    <img src="./img/iconos/blanco/chevron-left.svg" alt="">
+                </button>
+                <button class="slider-flecha siguiente" id="slider-siguiente" aria-label="Foto siguiente">
+                    <img src="./img/iconos/blanco/chevron-right.svg" alt="">
+                </button>
 
-            <div class="carrusel-pensum">
-                <article class="semestre">
-                    <h3>Semestre 1</h3>
-                    <ul>
-                        <li>Comunicación</li>
-                        <li>Deporte y cultura</li>
-                        <li>Matemáticas I</li>
-                        <li>Física I</li>
-                        <li>Biología general</li>
-                        <li>Introducción a la ingeniería</li>
-                        <li>Lógica y algoritmos I</li>
-                    </ul>
-                    <p class="total">18 créditos</p>
-                </article>
-                <article class="semestre">
-                    <h3>Semestre 2</h3>
-                    <ul>
-                        <li>Constitución y democracia</li>
-                        <li>Matemáticas II</li>
-                        <li>Física II</li>
-                        <li>Química I</li>
-                        <li>Lógica y algoritmos II</li>
-                        <li>Teoría general de sistemas</li>
-                    </ul>
-                    <p class="total">17 créditos</p>
-                </article>
-                <article class="semestre">
-                    <h3>Semestre 3</h3>
-                    <ul>
-                        <li>Idioma extranjero I</li>
-                        <li>Álgebra lineal</li>
-                        <li>Matemáticas discreta</li>
-                        <li>Análisis de sistemas</li>
-                        <li>Estructuras de datos I</li>
-                    </ul>
-                    <p class="total">17 créditos</p>
-                </article>
-                <article class="semestre">
-                    <h3>Semestre 4</h3>
-                    <ul>
-                        <li>Ecuaciones diferenciales</li>
-                        <li>Estadística para ingeniería</li>
-                        <li>Ingeniería de software I</li>
-                        <li>Sistemas operativos</li>
-                        <li>Estructuras de datos II</li>
-                    </ul>
-                    <p class="total">18 créditos</p>
-                </article>
-                <article class="semestre">
-                    <h3>Semestre 5</h3>
-                    <ul>
-                        <li>Idioma extranjero II</li>
-                        <li>Métodos numéricos</li>
-                        <li>Ingeniería de software II</li>
-                        <li>Programación web</li>
-                        <li>Diseño de base de datos</li>
-                    </ul>
-                    <p class="total">18 créditos</p>
-                </article>
-                <article class="semestre">
-                    <h3>Semestre 6</h3>
-                    <ul>
-                        <li>Filosofía e historia de la ciencia</li>
-                        <li>Modelos determinísticos</li>
-                        <li>Ingeniería de software III</li>
-                        <li>Programación móvil</li>
-                        <li>Redes informáticas I</li>
-                    </ul>
-                    <p class="total">18 créditos</p>
-                </article>
-                <article class="semestre">
-                    <h3>Semestre 7</h3>
-                    <ul>
-                        <li>Metodología de la investigación I</li>
-                        <li>Proyectos software</li>
-                        <li>Inteligencia computacional I</li>
-                        <li>Redes informáticas II</li>
-                        <li>Administración de base de datos</li>
-                    </ul>
-                    <p class="total">18 créditos</p>
-                </article>
-                <article class="semestre">
-                    <h3>Semestre 8</h3>
-                    <ul>
-                        <li>Desarrollo humano</li>
-                        <li>Metodología de la investigación II</li>
-                        <li>Planeación estratégica de sistemas de información</li>
-                        <li>Inteligencia computacional II</li>
-                        <li>Taller de emprendimiento e innovación</li>
-                        <li>Ética</li>
-                    </ul>
-                    <p class="total">18 créditos</p>
-                </article>
-                <article class="semestre">
-                    <h3>Semestre 9</h3>
-                    <ul>
-                        <li>Universidad, región y medio ambiente</li>
-                        <li>Gestión tecnológica</li>
-                        <li>Taller de escritura científica</li>
-                        <li>Electiva I</li>
-                        <li>Electiva II</li>
-                    </ul>
-                    <p class="total">18 créditos</p>
-                </article>
-                <article class="semestre">
-                    <h3>Semestre 10</h3>
-                    <ul>
-                        <li>Electiva III</li>
-                        <li>Electiva IV</li>
-                        <li>Opción de grado</li>
-                    </ul>
-                    <p class="total">18 créditos</p>
-                </article>
+                <div class="slider-puntos">
+                    <!-- Botón para pausar o reanudar el carrusel (funciona también en celular) -->
+                    <button class="slider-pausa" id="slider-pausa" aria-label="Pausar el carrusel">
+                        <img class="icono-pausa" src="./img/iconos/blanco/player-pause.svg" alt="">
+                        <img class="icono-play" src="./img/iconos/blanco/player-play.svg" alt="">
+                    </button>
+                    <button class="punto activo" aria-label="Ver foto 1"></button>
+                    <button class="punto" aria-label="Ver foto 2"></button>
+                    <button class="punto" aria-label="Ver foto 3"></button>
+                    <button class="punto" aria-label="Ver foto 4"></button>
+                    <button class="punto" aria-label="Ver foto 5"></button>
+                    <button class="punto" aria-label="Ver foto 6"></button>
+                </div>
             </div>
-
-            <a class="boton" href="./docs/plan-de-estudios-2020.pdf" download>Descargar plan de estudios (PDF)</a>
         </section>
-        <section id="info">
-            <h2>Más información</h2>
 
-            <h3>Misión</h3>
-            <p>
-                El programa académico Ingeniería de Sistemas de la Universidad de la Amazonia, asume como
-                encargo social la formación de profesionales íntegros, con capacidad para crear, innovar,
-                formular y solucionar problemáticas organizacionales y productivas, apoyados en el desarrollo
-                de sistemas de información soportados en las diferentes tecnologías informáticas, con el
-                propósito de contribuir al desarrollo social, económico y tecnológico de la región amazónica
-                y del país.
-            </p>
+        <!-- Título de la página y ruta de navegación -->
+        <div class="titulo-pagina">
+            <div class="contenedor">
+                <p class="ruta">
+                    <img src="./img/iconos/home.svg" alt="">
+                    <a href="https://www.uniamazonia.edu.co" target="_blank" rel="noopener">Inicio</a> ›
+                    Programas › Pregrado › Ingeniería ›
+                    <span>Ingeniería de Sistemas</span>
+                </p>
+                <h1>Ingeniería de Sistemas</h1>
+                <p class="subtitulo-pagina">Facultad de Ingeniería · Sede Florencia · Código SNIES 52384</p>
+            </div>
+        </div>
 
-            <h3>Visión</h3>
-            <p>
-                Ingeniería de Sistemas será un programa académico en permanente acreditación académica y
-                social, líder en la formación integral de profesionales, competentes en el campo académico,
-                investigativo y humanístico; comprometidos con el desarrollo tecnológico de la región
-                amazónica y del país apoyados en tecnologías de información.
-            </p>
+        <div class="contenedor columnas">
 
-            <h3>Perfil de egreso</h3>
-            <p>
-                El Ingeniero de Sistemas de la Universidad de la Amazonia es un profesional que comprende las
-                dinámicas del entorno, reconociendo las implicaciones y las responsabilidades legales,
-                profesionales, éticas, sociales, económicas y culturales del ejercicio de su profesión. Así
-                mismo, reconoce que la evolución constante de su disciplina y las condiciones cambiantes del
-                entorno hacen necesario implementar estrategias autónomas de aprendizaje continuo, orientados
-                a su perfeccionamiento profesional.
-            </p>
+            <!-- ==================== BARRA LATERAL ==================== -->
+            <aside class="lateral">
+                <div class="caja">
+                    <h2 class="caja-titulo"><img src="./img/iconos/blanco/info-circle.svg" alt="">Información del programa</h2>
+                    <ul class="ficha">
+                        <li><img src="./img/iconos/school.svg" alt=""><span><strong>Título:</strong> Ingeniero de Sistemas</span></li>
+                        <li><img src="./img/iconos/users.svg" alt=""><span><strong>Modalidad:</strong> Presencial</span></li>
+                        <li><img src="./img/iconos/sun.svg" alt=""><span><strong>Jornada:</strong> Diurna</span></li>
+                        <li><img src="./img/iconos/calendar-time.svg" alt=""><span><strong>Duración:</strong> 10 semestres</span></li>
+                        <li><img src="./img/iconos/books.svg" alt=""><span><strong>Créditos:</strong> 178</span></li>
+                        <li><img src="./img/iconos/id.svg" alt=""><span><strong>Código SNIES:</strong> 52384</span></li>
+                        <li><img src="./img/iconos/certificate.svg" alt=""><span><strong>Registro calificado:</strong> Resolución 001562 del 16 de febrero de 2022</span></li>
+                        <li><img src="./img/iconos/map-pin.svg" alt=""><span><strong>Sede:</strong> Florencia, Caquetá</span></li>
+                        <li><img src="./img/iconos/award.svg" alt=""><span><strong>Universidad acreditada en alta calidad:</strong> Resolución 016136 del 17 de junio de 2026</span></li>
+                    </ul>
+                </div>
+
+                <div class="caja">
+                    <h2 class="caja-titulo"><img src="./img/iconos/blanco/download.svg" alt="">Descargas</h2>
+                    <ul class="lista-enlaces">
+                        <li><img src="./img/iconos/file-type-pdf.svg" alt=""><a href="./docs/plan-de-estudios-2020.pdf" download>Plan de estudios (PDF)</a></li>
+                        <li><img src="./img/iconos/file-text.svg" alt=""><a href="https://www.uniamazonia.edu.co/documentos/docs/Programas%20Academicos/Ingenieria%20de%20Sistemas/BROCHURE%20INGENIERIA%20DE%20SISTEMAS.pdf"
+                                target="_blank" rel="noopener">Brochure del programa</a></li>
+                    </ul>
+                </div>
+
+                <div class="caja">
+                    <h2 class="caja-titulo"><img src="./img/iconos/blanco/link.svg" alt="">Enlaces de interés</h2>
+                    <ul class="lista-enlaces">
+                        <li><img src="./img/iconos/external-link.svg" alt=""><a href="https://www.uniamazonia.edu.co/inicio/index.php/es/programas/pregrado/ingenieria/ingenieria-de-sistemas.html"
+                                target="_blank" rel="noopener">Página oficial del programa</a></li>
+                        <li><img src="./img/iconos/external-link.svg" alt=""><a href="https://www.uniamazonia.edu.co/inicio/index.php/es/la-universidad/dependencias/departamentos/direccion-de-admision-registro-y-control-academico/228-aspirantes.html"
+                                target="_blank" rel="noopener">Requisitos de inscripción</a></li>
+                        <li><img src="./img/iconos/external-link.svg" alt=""><a href="https://chaira.uniamazonia.edu.co/sigepi/views/public/semilleros.aspx"
+                                target="_blank" rel="noopener">Semilleros en SIGEPI</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- ==================== CONTENIDO ==================== -->
+            <div class="contenido">
+
+                <section id="presentacion">
+                    <h2 class="titulo-seccion"><img src="./img/iconos/info-circle.svg" alt="">Presentación</h2>
+                    <p>
+                        El Programa Ingeniería de Sistemas de la Universidad de la Amazonia tiene como principal
+                        propósito desarrollar procesos de formación integral de profesionales de la Ingeniería de
+                        Sistemas, mediante un currículo que aborda las ciencias básicas, la ingeniería, el campo
+                        tecnológico, investigativo, socio-humanista y de formación complementaria, para crear,
+                        innovar y aplicar soluciones computacionales que contribuyan al progreso de la región
+                        Amazónica y el país.
+                    </p>
+                    <p>
+                        Fue creado mediante el Acuerdo 16 del 26 de agosto de 2004. El plan de estudios vigente se
+                        aprobó con el Acuerdo 44 del 2 de diciembre de 2020.
+                    </p>
+
+                    <h3>Áreas de formación</h3>
+                    <div class="areas">
+                        <div class="area">
+                            <img src="./img/iconos/code.svg" alt="">
+                            <div>
+                                <h4>Desarrollo de software</h4>
+                                <p>Ingeniería de software I, II y III, programación web y móvil.</p>
+                            </div>
+                        </div>
+                        <div class="area">
+                            <img src="./img/iconos/database.svg" alt="">
+                            <div>
+                                <h4>Bases de datos</h4>
+                                <p>Diseño y administración de bases de datos, estructuras de datos.</p>
+                            </div>
+                        </div>
+                        <div class="area">
+                            <img src="./img/iconos/network.svg" alt="">
+                            <div>
+                                <h4>Redes y sistemas</h4>
+                                <p>Redes informáticas I y II, sistemas operativos.</p>
+                            </div>
+                        </div>
+                        <div class="area">
+                            <img src="./img/iconos/brain.svg" alt="">
+                            <div>
+                                <h4>Inteligencia computacional</h4>
+                                <p>Inteligencia computacional I y II, modelos determinísticos.</p>
+                            </div>
+                        </div>
+                        <div class="area">
+                            <img src="./img/iconos/math-function.svg" alt="">
+                            <div>
+                                <h4>Ciencias básicas</h4>
+                                <p>Matemáticas, física, álgebra lineal, ecuaciones diferenciales.</p>
+                            </div>
+                        </div>
+                        <div class="area">
+                            <img src="./img/iconos/flask.svg" alt="">
+                            <div>
+                                <h4>Investigación</h4>
+                                <p>Metodología de la investigación, taller de escritura científica.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dos-columnas">
+                        <div class="recuadro">
+                            <h3><img src="./img/iconos/target-arrow.svg" alt="">Misión</h3>
+                            <p>
+                                El programa académico Ingeniería de Sistemas de la Universidad de la Amazonia, asume como
+                                encargo social la formación de profesionales íntegros, con capacidad para crear, innovar,
+                                formular y solucionar problemáticas organizacionales y productivas, apoyados en el desarrollo
+                                de sistemas de información soportados en las diferentes tecnologías informáticas, con el
+                                propósito de contribuir al desarrollo social, económico y tecnológico de la región amazónica
+                                y del país.
+                            </p>
+                        </div>
+                        <div class="recuadro">
+                            <h3><img src="./img/iconos/eye.svg" alt="">Visión</h3>
+                            <p>
+                                Ingeniería de Sistemas será un programa académico en permanente acreditación académica y
+                                social, líder en la formación integral de profesionales, competentes en el campo académico,
+                                investigativo y humanístico; comprometidos con el desarrollo tecnológico de la región
+                                amazónica y del país apoyados en tecnologías de información.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="perfil" class="con-foto">
+                    <h2 class="titulo-seccion"><img src="./img/iconos/user-check.svg" alt="">Perfil de egreso</h2>
+                    <figure class="foto-derecha">
+                        <img src="./img/fotos/practica-redes-antenas.jpg" width="1280" height="720" loading="lazy"
+                            alt="Estudiantes instalando una antena inalámbrica en una terraza con vista a Florencia">
+                        <figcaption>Práctica de redes: instalación de antenas inalámbricas en Florencia.</figcaption>
+                    </figure>
+                    <p>
+                        El Ingeniero de Sistemas de la Universidad de la Amazonia es un profesional que comprende las
+                        dinámicas del entorno, reconociendo las implicaciones y las responsabilidades legales,
+                        profesionales, éticas, sociales, económicas y culturales del ejercicio de su profesión. Así
+                        mismo, reconoce que la evolución constante de su disciplina y las condiciones cambiantes del
+                        entorno hacen necesario implementar estrategias autónomas de aprendizaje continuo, orientados
+                        a su perfeccionamiento profesional.
+                    </p>
+                    <h3><img src="./img/iconos/briefcase.svg" alt="">Campo de acción</h3>
+                    <p>
+                        Este profesional podrá desempeñarse tanto en empresas públicas como privadas en puestos como:
+                    </p>
+                    <ul class="lista-check">
+                        <li>Programador de computadoras implementando sistemas de información.</li>
+                        <li>Analista de sistemas.</li>
+                    </ul>
+                </section>
+
+            </div>
+        </div>
+
+        <!-- ==================== PLAN DE ESTUDIOS (CARRUSEL) ==================== -->
+        <section id="pensum" class="banda">
+            <div class="contenedor">
+                <h2 class="titulo-seccion"><img src="./img/iconos/books.svg" alt="">Plan de estudios</h2>
+                <div class="pensum-barra">
+                    <p>10 semestres y 178 créditos académicos (Acuerdo 44 de 2020). Usa las flechas o desliza para ver cada semestre.</p>
+                    <div class="pensum-flechas">
+                        <button id="pensum-anterior" aria-label="Semestres anteriores">
+                            <img src="./img/iconos/blanco/chevron-left.svg" alt="">
+                        </button>
+                        <button id="pensum-siguiente" aria-label="Semestres siguientes">
+                            <img src="./img/iconos/blanco/chevron-right.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pista del carrusel: las tarjetas van en fila y se deslizan de lado -->
+                <div class="pensum-pista" id="pensum-pista" tabindex="0" aria-label="Semestres del plan de estudios">
+                    <article class="semestre">
+                        <div class="semestre-cabecera">
+                            <span class="semestre-numero">I</span>
+                            <h3>Semestre 1</h3>
+                            <span class="semestre-creditos">18 cr.</span>
+                        </div>
+                        <ul>
+                            <li>Comunicación</li>
+                            <li>Deporte y cultura</li>
+                            <li>Matemáticas I</li>
+                            <li>Física I</li>
+                            <li>Biología general</li>
+                            <li>Introducción a la ingeniería</li>
+                            <li>Lógica y algoritmos I</li>
+                        </ul>
+                    </article>
+                    <article class="semestre">
+                        <div class="semestre-cabecera">
+                            <span class="semestre-numero">II</span>
+                            <h3>Semestre 2</h3>
+                            <span class="semestre-creditos">17 cr.</span>
+                        </div>
+                        <ul>
+                            <li>Constitución y democracia</li>
+                            <li>Matemáticas II</li>
+                            <li>Física II</li>
+                            <li>Química I</li>
+                            <li>Lógica y algoritmos II</li>
+                            <li>Teoría general de sistemas</li>
+                        </ul>
+                    </article>
+                    <article class="semestre">
+                        <div class="semestre-cabecera">
+                            <span class="semestre-numero">III</span>
+                            <h3>Semestre 3</h3>
+                            <span class="semestre-creditos">17 cr.</span>
+                        </div>
+                        <ul>
+                            <li>Idioma extranjero I</li>
+                            <li>Álgebra lineal</li>
+                            <li>Matemáticas discreta</li>
+                            <li>Análisis de sistemas</li>
+                            <li>Estructuras de datos I</li>
+                        </ul>
+                    </article>
+                    <article class="semestre">
+                        <div class="semestre-cabecera">
+                            <span class="semestre-numero">IV</span>
+                            <h3>Semestre 4</h3>
+                            <span class="semestre-creditos">18 cr.</span>
+                        </div>
+                        <ul>
+                            <li>Ecuaciones diferenciales</li>
+                            <li>Estadística para ingeniería</li>
+                            <li>Ingeniería de software I</li>
+                            <li>Sistemas operativos</li>
+                            <li>Estructuras de datos II</li>
+                        </ul>
+                    </article>
+                    <article class="semestre">
+                        <div class="semestre-cabecera">
+                            <span class="semestre-numero">V</span>
+                            <h3>Semestre 5</h3>
+                            <span class="semestre-creditos">18 cr.</span>
+                        </div>
+                        <ul>
+                            <li>Idioma extranjero II</li>
+                            <li>Métodos numéricos</li>
+                            <li>Ingeniería de software II</li>
+                            <li>Programación web</li>
+                            <li>Diseño de base de datos</li>
+                        </ul>
+                    </article>
+                    <article class="semestre">
+                        <div class="semestre-cabecera">
+                            <span class="semestre-numero">VI</span>
+                            <h3>Semestre 6</h3>
+                            <span class="semestre-creditos">18 cr.</span>
+                        </div>
+                        <ul>
+                            <li>Filosofía e historia de la ciencia</li>
+                            <li>Modelos determinísticos</li>
+                            <li>Ingeniería de software III</li>
+                            <li>Programación móvil</li>
+                            <li>Redes informáticas I</li>
+                        </ul>
+                    </article>
+                    <article class="semestre">
+                        <div class="semestre-cabecera">
+                            <span class="semestre-numero">VII</span>
+                            <h3>Semestre 7</h3>
+                            <span class="semestre-creditos">18 cr.</span>
+                        </div>
+                        <ul>
+                            <li>Metodología de la investigación I</li>
+                            <li>Proyectos software</li>
+                            <li>Inteligencia computacional I</li>
+                            <li>Redes informáticas II</li>
+                            <li>Administración de base de datos</li>
+                        </ul>
+                    </article>
+                    <article class="semestre">
+                        <div class="semestre-cabecera">
+                            <span class="semestre-numero">VIII</span>
+                            <h3>Semestre 8</h3>
+                            <span class="semestre-creditos">18 cr.</span>
+                        </div>
+                        <ul>
+                            <li>Desarrollo humano</li>
+                            <li>Metodología de la investigación II</li>
+                            <li>Planeación estratégica de sistemas de información</li>
+                            <li>Inteligencia computacional II</li>
+                            <li>Taller de emprendimiento e innovación</li>
+                            <li>Ética</li>
+                        </ul>
+                    </article>
+                    <article class="semestre">
+                        <div class="semestre-cabecera">
+                            <span class="semestre-numero">IX</span>
+                            <h3>Semestre 9</h3>
+                            <span class="semestre-creditos">18 cr.</span>
+                        </div>
+                        <ul>
+                            <li>Universidad, región y medio ambiente</li>
+                            <li>Gestión tecnológica</li>
+                            <li>Taller de escritura científica</li>
+                            <li>Electiva I</li>
+                            <li>Electiva II</li>
+                        </ul>
+                    </article>
+                    <article class="semestre">
+                        <div class="semestre-cabecera">
+                            <span class="semestre-numero">X</span>
+                            <h3>Semestre 10</h3>
+                            <span class="semestre-creditos">18 cr.</span>
+                        </div>
+                        <ul>
+                            <li>Electiva III</li>
+                            <li>Electiva IV</li>
+                            <li>Opción de grado</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <!-- Un punto por semestre: se marcan los que se están viendo -->
+                <div class="pensum-puntos">
+                    <button class="punto-pensum" aria-label="Ir al semestre 1"></button>
+                    <button class="punto-pensum" aria-label="Ir al semestre 2"></button>
+                    <button class="punto-pensum" aria-label="Ir al semestre 3"></button>
+                    <button class="punto-pensum" aria-label="Ir al semestre 4"></button>
+                    <button class="punto-pensum" aria-label="Ir al semestre 5"></button>
+                    <button class="punto-pensum" aria-label="Ir al semestre 6"></button>
+                    <button class="punto-pensum" aria-label="Ir al semestre 7"></button>
+                    <button class="punto-pensum" aria-label="Ir al semestre 8"></button>
+                    <button class="punto-pensum" aria-label="Ir al semestre 9"></button>
+                    <button class="punto-pensum" aria-label="Ir al semestre 10"></button>
+                </div>
+
+                <p class="centro">
+                    <a class="boton" href="./docs/plan-de-estudios-2020.pdf" download>
+                        <img src="./img/iconos/blanco/download.svg" alt="">Descargar plan de estudios (PDF)
+                    </a>
+                </p>
+            </div>
+        </section>
+
+
+        <!-- ==================== SEMILLEROS ==================== -->
+        <section id="semilleros" class="seccion">
+            <div class="contenedor">
+                <h2 class="titulo-seccion"><img src="./img/iconos/microscope.svg" alt="">Semilleros de investigación</h2>
+                <p>
+                    Los semilleros son grupos de estudiantes y docentes que se reúnen a investigar y desarrollar
+                    proyectos en un tema. Estos son algunos de los semilleros del programa registrados en SIGEPI,
+                    el sistema de la Vicerrectoría de Investigaciones.
+                </p>
+
+                <div class="semilleros">
+                    <article class="semillero">
+                        <div class="semillero-cabecera">
+                            <span class="semillero-icono"><img src="./img/iconos/trophy.svg" alt=""></span>
+                            <h3>Maratón de Programación</h3>
+                        </div>
+                        <p class="lider"><img src="./img/iconos/user.svg" alt="">Diana María Espinosa Sarmiento y Denis Lorena Álvarez Guayara</p>
+                        <p>Desarrollo de habilidades en programación, algoritmia y resolución de problemas, con aprendizaje colaborativo y participación en maratones de programación.</p>
+                    </article>
+                    <article class="semillero">
+                        <div class="semillero-cabecera">
+                            <span class="semillero-icono"><img src="./img/iconos/robot.svg" alt=""></span>
+                            <h3>Robótica y Sistemas Inteligentes</h3>
+                        </div>
+                        <p class="lider"><img src="./img/iconos/user.svg" alt="">Jesús Emilio Pinto Lopera</p>
+                        <p>Inteligencia artificial y robótica, con énfasis en la programación de dispositivos embebidos, el internet de las cosas y los sistemas inteligentes.</p>
+                    </article>
+                    <article class="semillero">
+                        <div class="semillero-cabecera">
+                            <span class="semillero-icono"><img src="./img/iconos/device-gamepad-2.svg" alt=""></span>
+                            <h3>Redes y Videojuegos (R3D)</h3>
+                        </div>
+                        <p class="lider"><img src="./img/iconos/user.svg" alt="">Lubeimar Eduardo Gallego Ruiz</p>
+                        <p>Investigación en redes informáticas, videojuegos y realidad virtual y mixta con fines académicos y sociales.</p>
+                    </article>
+                    <article class="semillero">
+                        <div class="semillero-cabecera">
+                            <span class="semillero-icono"><img src="./img/iconos/augmented-reality.svg" alt=""></span>
+                            <h3>SARA</h3>
+                        </div>
+                        <p class="lider"><img src="./img/iconos/user.svg" alt="">John Arley García Quintero</p>
+                        <p>Sistemas con aplicación de realidad aumentada: análisis, diseño, implementación y pruebas de esta tecnología.</p>
+                    </article>
+                    <article class="semillero">
+                        <div class="semillero-cabecera">
+                            <span class="semillero-icono"><img src="./img/iconos/leaf.svg" alt=""></span>
+                            <h3>R3INNOVA</h3>
+                        </div>
+                        <p class="lider"><img src="./img/iconos/user.svg" alt="">Oscar Fabián Patiño Perdomo</p>
+                        <p>Soluciones relacionadas con la gestión ambiental y la cultura amazónica mediadas por las TIC.</p>
+                    </article>
+                    <article class="semillero">
+                        <div class="semillero-cabecera">
+                            <span class="semillero-icono"><img src="./img/iconos/cpu.svg" alt=""></span>
+                            <h3>GIECOM</h3>
+                        </div>
+                        <p class="lider"><img src="./img/iconos/user.svg" alt="">Heriberto Fernando Vargas Losada</p>
+                        <p>Gestión del conocimiento, electrónica, informática y comunicaciones, en alianza con otras entidades académicas y territoriales.</p>
+                    </article>
+                    <article class="semillero">
+                        <div class="semillero-cabecera">
+                            <span class="semillero-icono"><img src="./img/iconos/book-2.svg" alt=""></span>
+                            <h3>PICARDIE</h3>
+                        </div>
+                        <p class="lider"><img src="./img/iconos/user.svg" alt="">Ruth Dary Escobar Sarria</p>
+                        <p>Cultura informática y estrategias para facilitar el aprendizaje con recursos didácticos e-learning.</p>
+                    </article>
+                    <article class="semillero">
+                        <div class="semillero-cabecera">
+                            <span class="semillero-icono"><img src="./img/iconos/device-laptop.svg" alt=""></span>
+                            <h3>SITICE</h3>
+                        </div>
+                        <p class="lider"><img src="./img/iconos/user.svg" alt="">Denis Lorena Álvarez Guayara y Lina Saza Bustos</p>
+                        <p>Integración de las TIC en la educación para dar solución a problemáticas educativas.</p>
+                    </article>
+                </div>
+
+                <p class="nota">
+                    Otros semilleros registrados: Enjambre, ISIS, Aeromodelismo SIA, Enfoque Sistémico, NUKAK Sistemas,
+                    Biometría y TIC, Bases de Datos de la Universidad de la Amazonia e Investigación en Informática
+                    Educativa. Fuente:
+                    <a href="https://chaira.uniamazonia.edu.co/sigepi/views/public/semilleros.aspx" target="_blank"
+                        rel="noopener">SIGEPI</a>.
+                </p>
+            </div>
+        </section>
+
+        <!-- ==================== ACTIVIDADES Y EVENTOS ==================== -->
+        <section id="eventos" class="banda">
+            <div class="contenedor">
+                <h2 class="titulo-seccion"><img src="./img/iconos/calendar-time.svg" alt="">Actividades y eventos</h2>
+                <p>Competencias, congresos, salidas académicas y actividades con la comunidad.</p>
+
+                <div class="eventos">
+                    <article class="evento">
+                        <img src="./img/fotos/evento-maraton-nacional-2026.jpg" width="1000" height="563" loading="lazy"
+                            alt="Equipo de estudiantes del programa con su docente en la Maratón Nacional de Programación 2026">
+                        <div class="evento-texto">
+                            <p class="etiqueta-evento"><img src="./img/iconos/trophy.svg" alt="">Programación competitiva</p>
+                            <h3>Maratón Nacional de Programación 2026</h3>
+                            <p>Estudiantes del programa participaron en la Maratón Nacional de Programación, que hace parte de la competencia ICPC.</p>
+                        </div>
+                    </article>
+                    <article class="evento">
+                        <img src="./img/fotos/evento-training-camp-argentina.jpg" width="1000" height="563" loading="lazy"
+                            alt="Tres estudiantes y una docente junto al pendón del Training Camp Argentina 2026">
+                        <div class="evento-texto">
+                            <p class="etiqueta-evento"><img src="./img/iconos/code.svg" alt="">Programación competitiva</p>
+                            <h3>Training Camp Argentina 2026</h3>
+                            <p>Participación en el campamento de programación competitiva realizado del 20 al 31 de julio en La Plata, Buenos Aires.</p>
+                        </div>
+                    </article>
+                    <article class="evento">
+                        <img src="./img/fotos/evento-concurso-robotica-maqueta.jpg" width="1024" height="768" loading="lazy"
+                            alt="Maqueta de una ciudad para la competencia de robots frente a un edificio del campus">
+                        <div class="evento-texto">
+                            <p class="etiqueta-evento"><img src="./img/iconos/robot.svg" alt="">Robótica</p>
+                            <h3>Concurso de Robótica Uniamazonia</h3>
+                            <p>Desafío Cloud: los robots compiten sobre una maqueta de la ciudad armada en el campus.</p>
+                        </div>
+                    </article>
+                    <article class="evento">
+                        <img src="./img/fotos/evento-congreso-citici.jpg" width="1000" height="563" loading="lazy"
+                            alt="Participante junto al pendón del congreso CITICI">
+                        <div class="evento-texto">
+                            <p class="etiqueta-evento"><img src="./img/iconos/presentation.svg" alt="">Investigación</p>
+                            <h3>Congreso CITICI</h3>
+                            <p>Participación en el Congreso Internacional sobre Tecnología e Innovación, Ciencia e Investigación.</p>
+                        </div>
+                    </article>
+                    <article class="evento">
+                        <img src="./img/fotos/evento-salida-academica.jpg" width="1000" height="563" loading="lazy"
+                            alt="Grupo de estudiantes y docentes del programa en una terraza durante una salida académica">
+                        <div class="evento-texto">
+                            <p class="etiqueta-evento"><img src="./img/iconos/bus.svg" alt="">Salidas académicas</p>
+                            <h3>Salida académica</h3>
+                            <p>Estudiantes y docentes visitaron laboratorios e instituciones de educación superior fuera de la región.</p>
+                        </div>
+                    </article>
+                    <article class="evento">
+                        <img src="./img/fotos/evento-unitic-colegios.jpg" width="1000" height="750" loading="lazy"
+                            alt="Niños de colegio en una sala de cómputo de UNITIC, Facultad de Ingeniería">
+                        <div class="evento-texto">
+                            <p class="etiqueta-evento"><img src="./img/iconos/school.svg" alt="">Proyección social</p>
+                            <h3>Colegios en UNITIC</h3>
+                            <p>Estudiantes de colegio en una actividad en las salas de cómputo de UNITIC, la Unidad de Apoyo en TIC de la Facultad de Ingeniería.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CAMPUS ==================== -->
+        <section id="galeria" class="seccion">
+            <div class="contenedor">
+                <h2 class="titulo-seccion"><img src="./img/iconos/building.svg" alt="">Nuestro campus</h2>
+                <div class="galeria">
+                    <figure>
+                        <img src="./img/fotos/campus-sede-principal.jpg" width="700" height="491" loading="lazy" alt="Sede principal de la Universidad de la Amazonia">
+                        <figcaption><img src="./img/iconos/map-pin.svg" alt="">Sede principal, Florencia</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="./img/fotos/campus-edificio-yapura.jpg" width="640" height="480" loading="lazy"
+                            alt="Vista aérea del edificio Yapura, sede de la Universidad de la Amazonia">
+                        <figcaption><img src="./img/iconos/map-pin.svg" alt="">Edificio Yapura</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CONTACTO ==================== -->
+        <section id="contacto" class="banda">
+            <div class="contenedor">
+                <h2 class="titulo-seccion"><img src="./img/iconos/address-book.svg" alt="">Contacto</h2>
+                <div class="dos-columnas">
+                    <ul class="ficha ficha-contacto">
+                        <li><img src="./img/iconos/user.svg" alt=""><span><strong>Coordinadora:</strong> Paula Andrea Chica Murcia</span></li>
+                        <li><img src="./img/iconos/phone.svg" alt=""><span><strong>Teléfono:</strong> <a href="tel:+573204541936">320 454 1936</a></span></li>
+                        <li><img src="./img/iconos/mail.svg" alt=""><span><strong>Correo:</strong> <a href="mailto:pisistemas@uniamazonia.edu.co">pisistemas@uniamazonia.edu.co</a></span></li>
+                        <li><img src="./img/iconos/map-pin.svg" alt=""><span><strong>Dirección:</strong> Sede Porvenir, Calle 17 Diagonal 17 con Carrera 3F, Barrio Porvenir, Florencia, Caquetá</span></li>
+                        <li><img src="./img/iconos/clock.svg" alt=""><span><strong>Atención:</strong> lunes a viernes, de 7:30 a.m. a 11:30 a.m. y de 1:30 p.m. a 5:30 p.m.</span></li>
+                    </ul>
+                    <div class="mapa">
+                        <iframe src="https://www.google.com/maps?q=Universidad+de+la+Amazonia,+Florencia,+Caquet%C3%A1&output=embed"
+                            title="Mapa de la Universidad de la Amazonia en Florencia" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
-    <footer>
-        <h2>Contacto</h2>
-        <p><strong>Coordinadora del programa:</strong> Paula Andrea Chica Murcia</p>
-        <p><strong>Teléfono:</strong> <a href="tel:+573204541936">320 454 1936</a></p>
-        <p><strong>Correo:</strong> <a href="mailto:pisistemas@uniamazonia.edu.co">pisistemas@uniamazonia.edu.co</a></p>
-        <p><strong>Dirección:</strong> Sede Porvenir, Calle 17 Diagonal 17 con Carrera 3F, Barrio Porvenir, Florencia, Caquetá</p>
-        <p><strong>Atención:</strong> lunes a viernes, de 7:30 a.m. a 11:30 a.m. y de 1:30 p.m. a 5:30 p.m.</p>
 
-        <p class="creditos">
-            Información tomada de la
-            <a href="https://www.uniamazonia.edu.co/inicio/index.php/es/programas/pregrado/ingenieria/ingenieria-de-sistemas.html">página oficial de la Universidad de la Amazonia</a>.
-            Íconos: <a href="https://tabler.io/icons">Tabler Icons</a>.
-        </p>
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="contenedor pie-columnas">
+            <div>
+                <div class="pie-marca">
+                    <img src="./img/logo-uniamazonia.png" alt="Logo de la Universidad de la Amazonia">
+                    <h2>Universidad de la Amazonia</h2>
+                </div>
+                <p class="pie-dato"><img src="./img/iconos/blanco/map-pin.svg" alt="">Sede Porvenir, Calle 17 Diagonal 17 con Carrera 3F, Barrio Porvenir. Florencia, Caquetá.</p>
+                <p class="pie-dato"><img src="./img/iconos/blanco/clock.svg" alt="">Lunes a viernes, 7:30 a.m. a 11:30 a.m. y 1:30 p.m. a 5:30 p.m.</p>
+            </div>
+            <div>
+                <h2>Programa de Ingeniería de Sistemas</h2>
+                <p class="pie-dato"><img src="./img/iconos/blanco/user.svg" alt="">Coordinadora: Paula Andrea Chica Murcia</p>
+                <p class="pie-dato"><img src="./img/iconos/blanco/phone.svg" alt=""><a href="tel:+573204541936">320 454 1936</a></p>
+                <p class="pie-dato"><img src="./img/iconos/blanco/mail.svg" alt=""><a href="mailto:pisistemas@uniamazonia.edu.co">pisistemas@uniamazonia.edu.co</a></p>
+            </div>
+            <div>
+                <h2>Enlaces</h2>
+                <p class="pie-dato"><img src="./img/iconos/blanco/world.svg" alt=""><a href="https://www.uniamazonia.edu.co" target="_blank" rel="noopener">Universidad de la Amazonia</a></p>
+                <p class="pie-dato"><img src="./img/iconos/blanco/brand-facebook.svg" alt=""><a href="https://www.facebook.com/p/Programa-Ingenier%C3%ADa-de-Sistemas-Uniamazonia-100040650018772/"
+                        target="_blank" rel="noopener">Facebook del programa</a></p>
+                <p class="pie-dato"><img src="./img/iconos/blanco/microscope.svg" alt=""><a href="https://chaira.uniamazonia.edu.co/sigepi/views/public/semilleros.aspx" target="_blank"
+                        rel="noopener">SIGEPI - Semilleros</a></p>
+            </div>
+        </div>
+
+        <div class="pie-final">
+            <div class="contenedor">
+                <p>Proyecto académico del curso de Programación Web · 2026</p>
+                <p class="creditos">
+                    Información tomada de la
+                    <a href="https://www.uniamazonia.edu.co/inicio/index.php/es/programas/pregrado/ingenieria/ingenieria-de-sistemas.html">página oficial del programa</a>
+                    y de <a href="https://chaira.uniamazonia.edu.co/sigepi/views/public/semilleros.aspx">SIGEPI</a>.
+                    Íconos: <a href="https://tabler.io/icons">Tabler Icons</a>.
+                    Fotos de actividades y banners: publicaciones de la Universidad de la Amazonia y del Programa de
+                    Ingeniería de Sistemas en redes sociales. Foto de la sede principal:
+                    <a href="https://commons.wikimedia.org/wiki/File:Uniamazonia_Florencia.jpg">Nicomans</a>, vía Wikimedia Commons
+                    (<a href="https://creativecommons.org/licenses/by-sa/3.0/deed.es">CC BY-SA 3.0</a>).
+                </p>
+            </div>
+        </div>
     </footer>
+
+    <!-- Botón para volver arriba (aparece al bajar en la página) -->
+    <a href="#inicio" class="volver-arriba" id="volver-arriba" aria-label="Volver arriba">
+        <img src="./img/iconos/blanco/arrow-up.svg" alt="">
+    </a>
 
 </body>
 
